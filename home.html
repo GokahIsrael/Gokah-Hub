@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gokah Hub</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Signup Section */
+        .signup-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f2f2f2;
+        }
+
+        .signup-box {
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 350px;
+        }
+
+        .signup-box h2 {
+            text-align: center;
+        }
+
+        .signup-box input, .signup-box button {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            font-size: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .signup-box button {
+            background: #007bff;
+            color: white;
+            border: none;
+        }
+
+        .signup-box button:hover {
+            background: #0056b3;
+        }
+
+        .message {
+            text-align: center;
+            color: green;
+            display: none;
+        }
+
+        /* Home Section */
+        .home-page {
+            display: none;
+            height: 100vh;
+            background-image: url('https://images.unsplash.com/photo-1522199755839-a2bacb67c546');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .header {
+            width: 100%;
+            background: rgba(0,0,0,0.6);
+            padding: 10px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        marquee span {
+            margin: 0 30px;
+            cursor: pointer;
+        }
+
+        marquee span:hover {
+            color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- SIGN UP PAGE -->
+    <div class="signup-container" id="signupPage">
+        <div class="signup-box">
+            <h2>Sign Up</h2>
+
+            <input type="text" id="name" placeholder="Full Name">
+            <input type="email" id="email" placeholder="Email Address">
+            <input type="password" id="password" placeholder="Password">
+
+            <button onclick="submitForm()">Create Account</button>
+
+            <p class="message" id="successMsg">Account created successfully!</p>
+        </div>
+    </div>
+
+    <!-- HOME PAGE -->
+    <div class="home-page" id="homePage">
+        <div class="header">
+            <marquee behavior="scroll" direction="left">
+                <span>Home</span>
+                <span>Pics</span>
+                <span>Maths</span>
+                <span>Chat</span>
+            </marquee>
+        </div>
+    </div>
+
+    <script>
+        function submitForm() {
+            let name = document.getElementById("name").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let password = document.getElementById("password").value.trim();
+            let successMsg = document.getElementById("successMsg");
+
+            if (name === "" || email === "" || password === "") {
+                alert("Please fill in all fields!");
+                return;
+            }
+
+            // Show success message
+            successMsg.style.display = "block";
+
+            // Delay then show Home Page
+            setTimeout(function() {
+                document.getElementById("signupPage").style.display = "none";
+                document.getElementById("homePage").style.display = "block";
+            }, 1000);
+        }
+    </script>
+
+</body>
+</html>Pageg
